@@ -3,6 +3,12 @@
 #include <vector>
 using namespace std;
 
+const int directs[8][2] = {
+    {-1, -1}, {-1, 0}, {-1, 1},
+    {0, -1},           {0, 1},
+    {1, -1}, {1, 0}, {1, 1}
+};
+
 class cpp {
 public:
     static void solve(vector<vector<char>> &mine) {
@@ -13,7 +19,15 @@ public:
                 if (mine[i][j] == '.') {
                     int x = 0;
 
+                    for (const auto &dir : directs) {
+                        int newI = i + dir[0], newJ = j + dir[1];
 
+                        if (0 <= newI and newI < row and
+                            0 <= newJ and newJ < col)
+                            x += (mine[newI][newJ] == '*') ? 1 : 0;
+                    }
+
+                    mine[i][j] = char(x + '0');
                 }
             }
         }
