@@ -35,40 +35,29 @@ void printLList(Node* head) {
     cout << '\n';
 }
 
-Node* convert(Node* head) {
+Node* moveFirst2Last(Node* head) {
     if (!head) return nullptr;
 
-    Node* s = head, *f = head;
+    if (!head->next) return head;
 
-    while (f and f->next) {
-        s = s->next;
-        f = f->next->next;
-    }
+    Node* tail = head;
 
-    Node* dummy = new Node(0);
-    Node* cur = dummy;
+    while (tail->next)
+        tail = tail->next;
 
-    while (s) {
-        cur->next = head;
-        cur = cur->next;
-        head = head->next;
+    tail->next = head;
+    Node* newHead = head->next;
+    head->next = nullptr;
 
-        cur->next = s;
-        cur = cur->next;
-        s = s->next;
-    }
-
-    Node* ans = dummy->next;
-    delete dummy;
-
-    return ans;
+    return newHead;
 }
 
 int main() {
     int m; cin >> m;
     Node* head = createLList(m);
-    
-    Node* ans = convert(head);
+
+    Node* ans = moveFirst2Last(head);
+
     printLList(ans);
 
     return 0;

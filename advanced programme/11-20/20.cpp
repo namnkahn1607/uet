@@ -36,6 +36,8 @@ void printLList(Node* head) {
 }
 
 void printLast(Node* head, int k) {
+    if (!head) return nullptr;
+
     Node* fst = head;
 
     for (int i = 0; i < k; ++i)
