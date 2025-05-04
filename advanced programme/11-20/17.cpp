@@ -4,12 +4,12 @@ using namespace std;;
 
 class Node {
 public:
-    int val;
+    int value;
     Node* next;
 
-    Node(const int &_x) : val(_x), next(nullptr) {}
+    Node(const int &_x) : value(_x), next(nullptr) {}
 
-    Node(const int &_x, Node* ptr) : val(_x), next(ptr) {}
+    Node(const int &_x, Node* ptr) : value(_x), next(ptr) {}
 };
 
 Node* createLList(const int &m) {
@@ -28,7 +28,7 @@ Node* createLList(const int &m) {
 
 void printLList(Node* head) {
     while (head) {
-        cout << head->val << ' ';
+        cout << head->value << ' ';
         head = head->next;
     }
 
@@ -42,7 +42,7 @@ Node* insert(Node* head, int x) {
         return newNode;
 
     if (!head->next) {
-        if (head->val >= x) {
+        if (head->value >= x) {
             newNode->next = head;
             head = newNode;
         } else
@@ -55,8 +55,8 @@ Node* insert(Node* head, int x) {
     Node* nxt = head->next;
 
     while (nxt) {
-        if (prv->val <= x and x <= nxt->val or
-            prv->val >= x and x >= nxt->val) {
+        if (prv->value <= x and x <= nxt->value or
+            prv->value >= x and x >= nxt->value) {
             break;
         }
 

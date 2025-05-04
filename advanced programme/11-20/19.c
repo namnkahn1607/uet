@@ -3,21 +3,21 @@
 #include <stdlib.h>
 
 typedef struct Node {
-    int val;
+    int value;
     struct Node* next;
 } Node;
     
 Node* createLList(int m) {
     int x; scanf("%d", &x);
     Node* head = (Node*)malloc(sizeof(Node));
-    head->val = x;
+    head->value = x;
     Node* tail = head;
 
     for (int i = 1; i < m; ++i) {
         scanf("%d", &x);
         tail->next = (Node*)malloc(sizeof(Node));
         tail = tail->next;
-        tail->val = x;
+        tail->value = x;
     }
 
     tail->next = NULL;
@@ -27,7 +27,7 @@ Node* createLList(int m) {
 
 void print(Node* head) {
     while (head) {
-        printf("%d ", head->val);
+        printf("%d ", head->value);
         head = head->next;
     }
 }
