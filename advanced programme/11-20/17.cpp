@@ -24,6 +24,8 @@ Node* createNode(const int &x, Node* ptr) {
 }
 
 Node* createLList(const int &m) {
+    if (m == 0) return nullptr;
+
     int x; cin >> x;
     Node* head = createNode(x);
     Node* tail = head;

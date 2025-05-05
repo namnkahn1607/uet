@@ -8,6 +8,8 @@ typedef struct Node {
 } Node;
     
 Node* createLList(int m) {
+    if (m == 0) return NULL;
+    
     int x; scanf("%d", &x);
     Node* head = (Node*)malloc(sizeof(Node));
     head->value = x;
