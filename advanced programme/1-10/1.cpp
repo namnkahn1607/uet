@@ -1,4 +1,4 @@
-// adv-programme. 1
+// adv-programme.1
 #include <iostream>
 using namespace std;
 
