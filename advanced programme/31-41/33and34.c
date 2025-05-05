@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef True true;
-typedef False false;
+typedef True 1;
+typedef False 0;
 
 _Bool distinct(int x) {
     int arr[10] = {};
