@@ -1,4 +1,4 @@
-// adv-programme.22
+// adv-programme.26
 #include <iostream>
 using namespace std;
 
@@ -24,6 +24,8 @@ Node* createNode(const int &x, Node* ptr) {
 }
 
 Node* createLList(const int &m) {
+    if (m == 0) return nullptr;
+
     int x; cin >> x;
     Node* head = createNode(x);
     Node* tail = head;
@@ -46,20 +48,29 @@ void printLList(Node* head) {
     cout << '\n';
 }
 
-void printReverse(Node* head, int k) {
-    if (k == 0)
-        return;
+Node* insertTail(Node* head, int x) {
+    Node* newNode = createNode(x);
     
-    printReverse(head->next, k - 1);
-    
-    cout << head->value << " ";
+    if (!head)
+        return newNode;
+
+    Node* cur = head;
+
+    while (cur->next)
+        cur = cur->next;
+
+    cur->next = newNode;
+
+    return head;
 }
 
 int main() {
-    int m, k; cin >> m >> k;
+    int m, x; cin >> m >> x;
     Node* head = createLList(m);
 
-    printReverse(head, k);
+    head = insertTail(head, x);
+
+    printLList(head);
 
     return 0;
 }
