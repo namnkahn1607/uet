@@ -6,20 +6,32 @@ class Node {
 public:
     int value;
     Node* next;
-
-    Node(const int &_x) : value(_x), next(nullptr) {}
-
-    Node(const int &_x, Node* ptr) : value(_x), next(ptr) {}
 };
+
+Node* createNode(const int &x) {
+    Node* newNode = new Node;
+    newNode->value = x;
+    newNode->next = nullptr;
+
+    return newNode;
+}
+
+Node* createNode(const int &x, Node* ptr) {
+    Node* newNode = new Node;
+    newNode->value = x;
+    newNode->next = ptr;
+
+    return newNode;
+}
 
 Node* createLList(const int &m) {
     int x; cin >> x;
-    Node* head = new Node(x);
+    Node* head = createNode(x);
     Node* tail = head;
 
     for (int i = 1; i < m; ++i) {
         cin >> x;
-        tail->next = new Node(x);
+        tail->next = createNode(x);
         tail = tail->next;
     }
 
